@@ -37,13 +37,14 @@ const linkRef = useRef<HTMLUListElement | null>(null);
     setIsDark(!dark)
   }
   useEffect(()=> {
-      if (dark) {
+    if (dark) {
     document.documentElement.classList.add('dark')
-       navRef.current?.classList.add("bg-[#11001F]");
-      //  linkRef.current?.classList.add("bg-[#11001f]")
+     navRef.current?.classList.add("bg-[#11001F]");
 
   } else {
     document.documentElement.classList.remove('dark')
+         navRef.current?.classList.remove("bg-[#11001F]");
+
 
   }
   }, [dark])
