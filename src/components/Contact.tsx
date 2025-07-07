@@ -4,7 +4,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="w-full px-[6%] md:px-[12%] py-16 scroll-mt-20 bg-[url('/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center"
+      className="w-full px-[6%] md:px-[12%] py-16 scroll-mt-20 bg-[url('/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none"
     >
       <h4 className="text-center mb-2 text-lg text-gray-500 font-ovo dark:text-white">Connect with me</h4>
       <h2 className="text-center text-4xl font-bold mb-4 font-ovo dark:text-white">Get In Touch</h2>
@@ -17,13 +17,13 @@ function Contact() {
           <input
             type="text"
             placeholder="Your Name"
-            className="p-3 outline-none border border-gray-300 rounded-md bg-white focus:ring-2 ring-black transition duration-300"
+            className="p-3 outline-none border border-gray-300 rounded-md bg-white focus:ring-2 ring-black transition duration-300  dark:bg-darkTheme"
             required
           />
           <input
             type="email"
             placeholder="Your Email"
-            className="p-3 outline-none border border-gray-300 rounded-md bg-white focus:ring-2 ring-black transition duration-300"
+            className="p-3 outline-none border border-gray-300 rounded-md bg-white focus:ring-2 ring-black transition duration-300 dark:bg-darkTheme"
             required
           />
         </div>
@@ -31,7 +31,7 @@ function Contact() {
         <textarea
           rows={6}
           placeholder="Your Message"
-          className="w-full p-4 outline-none border border-gray-300 rounded-md bg-white resize-none focus:ring-2 ring-black transition duration-300"
+          className="w-full p-4 outline-none border border-gray-300 rounded-md bg-white resize-none focus:ring-2 ring-black transition duration-300  dark:bg-darkTheme"
           required
         ></textarea>
 

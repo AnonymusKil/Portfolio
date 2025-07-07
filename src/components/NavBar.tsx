@@ -11,17 +11,18 @@ import { useEffect, useState, useRef } from "react";
 function NavBar() {
   const[dark, setIsDark] = useState<boolean>(false)
   const[open, setIsOpen] = useState<boolean>(false)
-  const navRef = useRef(null);
-  const linkRef = useRef(null)
+ const navRef = useRef<HTMLElement | null>(null);
+const linkRef = useRef<HTMLUListElement | null>(null);
+
 
     useEffect  (() => {
       window.addEventListener('scroll', () => {
         if(scrollY > 50) {
-          navRef.current?.classList.add("bg-white", "backdrop-blur", "shadow-sm")
+          navRef.current?.classList.add("bg-white", "backdrop-blur", "shadow-sm" )
           linkRef.current?.classList.remove("bg-white, shadow-sm, bg-opacity-50")
 
         }else{
-        navRef.current?.classList.remove("bg-white", "backdrop-blur", "shadow-sm");
+        navRef.current?.classList.remove("bg-white", "backdrop-blur", "shadow-sm" );
         linkRef.current?.classList.add("bg-white", "shadow-sm", "bg-opacity-50")
         
 
@@ -38,13 +39,17 @@ function NavBar() {
   useEffect(()=> {
       if (dark) {
     document.documentElement.classList.add('dark')
+       navRef.current?.classList.add("bg-[#11001F]");
+      //  linkRef.current?.classList.add("bg-[#11001f]")
+
   } else {
     document.documentElement.classList.remove('dark')
+
   }
   }, [dark])
 
   return (
-      <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+      <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ">
         <img src={Logo} alt="" className="w-28 cursor-pointer mr-14 dark:hidden " />
         <img src={darkLogo} className="w-28 cursor-pointer mr-14 hidden dark:block" alt="" />
         <ul ref={linkRef} className=" hidden  md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-ovo ">
