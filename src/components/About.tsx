@@ -1,7 +1,10 @@
 import userImage from "../assets/user-image.png"
 import codeIcon from "../assets/code-icon.png"
+import codeIconDark from "../assets/code-icon-dark.png"
 import educationIcon from "../assets/edu-icon.png"
+import educationIconDark from "../assets/edu-icon-dark.png"
 import projectIcon from "../assets/project-icon.png"
+import projectIconDark from "../assets/project-icon-dark.png"
 import vsCodeIcon from "../assets/vscode.png"
 import fireBase from "../assets/firebase.png"
 import mongoDB from "../assets/mongodb.png"
@@ -27,17 +30,20 @@ function About() {
               <p className="mb-10 max-w-2xl">I am an experienced Frontend Developer with over a decade of professional expertise in the field. Throughout my career, I have had the privilege of collaborating with prestigious organizations, contributing to their success and growth.</p>
               <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
                 <li className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
-                    <img src={codeIcon} alt="" className="w-7 mt-3" />
+                    <img src={codeIcon} alt="" className="w-7 mt-3 dark:hidden" />
+                    <img src={codeIconDark} alt="" className="w-7 mt-3 hidden dark:block" />
                      <h3 className="my-4 font-semibold text-gray-700 dark:text-white">Languages</h3>
                      <p className="text-gray-600 text-sm dark:text-white" >HTML, CSS, JavaScript, React.JS, Next JS, TypeScript</p>
                 </li>
                 <li className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
-                    <img src={educationIcon} alt="" className="w-7 mt-3" />
+                    <img src={educationIcon} alt="" className="w-7 mt-3  dark:hidden" />
+                           <img src={educationIconDark} alt="" className="w-7 mt-3 hidden dark:block" />
                      <h3 className="my-4 font-semibold text-gray-700 dark:text-white">Languages</h3>
                      <p className="text-gray-600 text-sm dark:text-white">N/A</p>
                 </li>
                 <li className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
-                    <img src={projectIcon} alt="" className="w-7 mt-3" />
+                    <img src={projectIcon} alt="" className="w-7 mt-3 dark:hidden" />
+                        <img src={projectIconDark} alt="" className="w-7 mt-3 hidden dark:block" />
                      <h3 className="my-4 font-semibold text-gray-700 dark:text-white">Languages</h3>
                      <p className="text-gray-600 text-sm dark:text-white">Built more than 20 projects</p>
                 </li>

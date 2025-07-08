@@ -3,9 +3,10 @@ import arrowIcon from "../assets/arrow-icon.png";
 import darkThemeIcon from "../assets/moon_icon.png";
 import whiteThemeIcon from "../assets/sun_icon.png"
 import menuIcon from "../assets/menu-black.png"
+import darkMenuIcon from "../assets/close-white.png"
 import secondMenuIcon from "../assets/close-black.png"
 import darkLogo from "../assets/logo_dark.png"
-import darkMenu from "../assets/menu-black.png"
+import darkMenu from "../assets/menu-white.png"
 import { useEffect, useState, useRef } from "react";
 // import { Link } from "react-router-dom";
 function NavBar() {
@@ -19,13 +20,10 @@ const linkRef = useRef<HTMLUListElement | null>(null);
       window.addEventListener('scroll', () => {
         if(scrollY > 50) {
           navRef.current?.classList.add("bg-white", "backdrop-blur", "shadow-sm" )
-          linkRef.current?.classList.remove("bg-white, shadow-sm, bg-opacity-50")
-
+          linkRef.current?.classList.remove("bg-white", "shadow-sm", "bg-opacity-50")
         }else{
-        navRef.current?.classList.remove("bg-white", "backdrop-blur", "shadow-sm" );
+        navRef.current?.classList.remove("bg-white", "backdrop-blur", "shadow-sm");
         linkRef.current?.classList.add("bg-white", "shadow-sm", "bg-opacity-50")
-        
-
         }
       })
     },[])
@@ -34,12 +32,19 @@ const linkRef = useRef<HTMLUListElement | null>(null);
     
   }
   const toggleTheme = () => {
+    const currentTheme = localStorage.getItem("theme")
+    if(currentTheme === "dark"){
+     localStorage.setItem("theme", "light")
+    }else{
+     localStorage.setItem("theme", "dark")
+    }
     setIsDark(!dark)
   }
   useEffect(()=> {
     if (dark) {
     document.documentElement.classList.add('dark')
      navRef.current?.classList.add("bg-[#11001F]");
+
 
   } else {
     document.documentElement.classList.remove('dark')
@@ -48,12 +53,20 @@ const linkRef = useRef<HTMLUListElement | null>(null);
 
   }
   }, [dark])
+ useEffect(() => {
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme === "dark") {
+    setIsDark(true);
+  } else {
+    setIsDark(false);
+  }
+}, []);
 
   return (
       <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ">
         <img src={Logo} alt="" className="w-28 cursor-pointer mr-14 dark:hidden " />
         <img src={darkLogo} className="w-28 cursor-pointer mr-14 hidden dark:block" alt="" />
-        <ul ref={linkRef} className=" hidden  md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-ovo ">
+        <ul ref={linkRef} className=" hidden  md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-ovo dark:bg-darkTheme ">
           <li>
             <a href="#top">Home</a>
           </li>
@@ -86,11 +99,12 @@ const linkRef = useRef<HTMLUListElement | null>(null);
         </div>
         {/* ---mobile */}
           <ul id="sideMenu" className={`fixed top-0 right-0 h-screen w-64 z-50 bg-rose-50 py-20 px-10 flex flex-col gap-6
-          transform transition-transform duration-500 ease-in-out md:hidden font-ovo ${
+          transform transition-transform duration-500 ease-in-out md:hidden font-ovo dark:bg-[#2a004f] ${
             open ? "translate-x-0" : "translate-x-full"
           }`}>
           <div className="absolute right-6 top-6" onClick={openMenu}>
-            <img src={secondMenuIcon} alt="" className="w-5 cursor-pointer" />
+            <img src={secondMenuIcon} alt="" className="w-5 cursor-pointer dark:hidden" />
+            <img src={darkMenuIcon} alt="" className="w-5 cursor-pointer hidden dark:block" />
           </div>
           <li onClick={openMenu}>
             <a href="#top">Home</a>

@@ -1,12 +1,16 @@
 import logo from "../assets/logo.png";
 import mailIcon from "../assets/mail_icon.png";
+import logoDark from "../assets/logo_dark.png"
+import mailIconDark from "../assets/mail_icon_dark.png"
 function Footer() {
   return (
     <section className="mt-20">
       <div className="text-center">
-        <img src={logo} alt="" className="w-36 mx-auto mb-2 " />
+        <img src={logo} alt="" className="w-36 mx-auto mb-2 dark:hidden " />
+          <img src={logoDark} alt="" className="w-36 mx-auto mb-2 hidden dark:block " />
         <div className="w-max flex items-center gap-2 mx-auto">
-          <img src={mailIcon} alt="" className="w-6" />
+          <img src={mailIcon} alt="" className="w-6 dark:hidden" />
+              <img src={mailIconDark} alt="" className="w-6 hidden dark:block" />
           navadesignz11@gmail.com
         </div>
       </div>

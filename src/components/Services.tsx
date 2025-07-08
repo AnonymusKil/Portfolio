@@ -42,12 +42,12 @@ function Services() {
         {services.map(({ title, icon, description }, index) => (
           <div
             key={index}
-            className="border border-gray-300 rounded-2xl px-8 py-12 hover:shadow-[4px_4px_0_#000] hover:border-black cursor-pointer bg-white hover:-translate-y-1 transition-all duration-300"
+            className="border border-gray-300 rounded-2xl px-8 py-12 hover:shadow-[4px_4px_0_#000] dark:hover:bg-[#2a004a] dark:hover:shadow-[4px_4px_0_#fff] hover:border-black cursor-pointer bg-white hover:-translate-y-1 transition-all duration-300 dark:bg-transparent "
           >
             <img src={icon} alt={title} className="w-10 mb-4" />
-            <h3 className="text-lg font-semibold mb-3 text-gray-800">{title}</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
-            <a href="#" className="flex items-center gap-2 text-sm mt-5 font-medium text-black">
+            <h3 className="text-lg font-semibold mb-3 text-gray-800 dark:text-white">{title}</h3>
+            <p className="text-sm text-gray-600 leading-relaxed dark:text-white">{description}</p>
+            <a href="#" className="flex items-center gap-2 text-sm mt-5 font-medium text-black dark:text-white">
               Read More <img src={rightArrow} alt="arrow" className="w-4" />
             </a>
           </div>
